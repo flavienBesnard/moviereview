@@ -1,0 +1,18 @@
+extend ../layout
+
+block content
+	.container
+		.row
+			.panel.panel-default
+				.panel-heading
+					h3 #{keyword}
+				.panel-body
+					if movies && movies.length>0
+						each movie in movies
+							.col-md-2
+								.thumbnail
+									a(href="/movie/#{movie._id}")
+										img(src="#{movie.poster}", alt="#{movie.title}")
+									.caption
+										h3 #{movie.title}
+										p: a.btn.btn-primary(href="/movie/#{movie._id}", role="button") play the trailer
